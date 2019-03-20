@@ -1,12 +1,15 @@
-{
+
+on
+on{
   "pages": [
+    "pages/launch/index",
     "pages/index/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "好耶",
     "navigationBarTextStyle": "black"
   }
 }
