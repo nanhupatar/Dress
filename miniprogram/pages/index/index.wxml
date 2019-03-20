@@ -1,0 +1,1 @@
+<image style="display:none" wx:for="images" wx:key="{{item.url}}" src="{{item.images[0]}}"></image>
