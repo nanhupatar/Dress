@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const db = cloud.database();
   const {pageNum,pageSize} = event;
-  const skip = (pageNum-1).pageSize;
+  const skip = (pageNum-1)*pageSize;
 
   const count = await db.collection("dress").count();
   const images = await db.collection("dress").skip(skip).limit(pageSize).get();

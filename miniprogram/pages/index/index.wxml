@@ -1,3 +1,18 @@
-<image style="display:none" wx:for="images" wx:key="{{item.url}}" src="{{item.images[0]}}"></image>
 
-<image src=": cloud://test-f726fb.7465-test-f726fb/dress/60heye/IMG_3381.jpg"></image>
+<view style="display:none">
+  <image wx:for="{{images}}" wx:key="_id" id="{{item._id}}" src="{{item.images[0]}}" bindload="onImageLoad"></image>
+</view>
+<scroll-view scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+  <view style="width:100%">
+    <view class="img_item">
+      <view wx:for="{{col1}}" wx:key="_id">
+        <image src="{{item.images[0]}}" style="width:100%;height:{{item.height}}px" data-item='{{item}}' bindtap='goDetail'></image>
+      </view>
+    </view>
+    <view class="img_item">
+      <view wx:for="{{col2}}" wx:key="_id">
+        <image src="{{item.images[0]}}" style="width:100%;height:{{item.height}}px" data-item='{{item}}' bindtap='goDetail'></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>
