@@ -1,0 +1,67 @@
+.flex {
+  display: flex;
+}
+
+.flex_row {
+  flex-direction: row;
+} /* 主轴为从左到右，默认值 */
+
+.flex_col {
+  flex-direction: column;
+} /* 主轴为从上到下 */
+
+.flex_inline {
+  display: inline-flex;
+} /* 行内元素使用flex布局 */
+
+.flex_1 {
+  flex: 1;
+}
+.flex_068 {
+  flex: 0.68;
+}
+
+.flex_1p5 {
+  flex: 1.5;
+}
+
+.flex_2 {
+  flex: 2;
+}
+
+.flex_justify_center {
+  justify-content: center;
+} /* 沿主轴居中对齐 */
+
+.flex_justify_end {
+  justify-content: flex-end;
+} /* 沿主轴末尾对齐 */
+
+.flex_align_center {
+  align-items: center;
+} /* 垂直居中 */
+
+.flex_align_start {
+  align-items: flex-start;
+} /* 垂直顶部对齐 */
+
+.flex_align_end {
+  align-items: flex-end;
+} /* 垂直底部对齐 */
+
+.flex_center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_between {
+  justify-content: space-between;
+} /* 两端对齐 */
+
+.flex_around {
+  justify-content: space-around;
+} /* 各元素间隔相等 */
+
+.flex_wrap {
+  flex-wrap: wrap;
+} /* 子元素换行排布，第一行在上方 */

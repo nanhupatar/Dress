@@ -12,7 +12,8 @@ Page({
     col2: [],
     pageNum:1,
     pageSize:12,
-    totalPage:2
+    totalPage:2,
+    avatarUrl:"./avatar.png"
   },
 
   onLoad: function () {
@@ -20,7 +21,7 @@ Page({
       success: (res) => {
         let ww = res.windowWidth;
         let wh = res.windowHeight;
-        let imgWidth = ww * 0.48;
+        let imgWidth = ww * 0.46;
         let scrollH = wh;
 
         this.setData({

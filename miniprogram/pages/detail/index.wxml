@@ -1,2 +1,15 @@
-<!--pages/detail/index.wxml-->
-<text>pages/detail/index.wxml</text>
+<view style="display:none">
+  <image wx:for="{{info.images}}" data-item='{{item}}' wx:key="{{item.fileID}}" src="{{item.fileID}}" bindload="onImageLoad"></image>
+</view>
+
+<view wx:if="{{done}}">
+  <view class='user-info flex flex_align_center'>
+    <image class='avatar' src='{{info.userInfo.avatarUrl}}'></image>
+    <view class='nickName'>{{info.userInfo.nickName||''}}</view>
+  </view>
+  <view class='cover-img flex flex_center'>
+    <image src='{{images[0].fileID}}' style='height:{{images[0].height*ww/images[0].width}}px'></image>
+  </view>
+  <view class='discription'>{{info.description}}</view>
+  <view class='image-list'></view>
+</view>

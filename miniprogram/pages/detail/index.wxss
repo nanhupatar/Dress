@@ -1,1 +1,28 @@
-/* pages/detail/index.wxss */
+.cover-img image {
+  width: 100%;
+}
+
+.user-info {
+  padding: 5px;
+  background: #ffffff;
+}
+
+.user-info .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.user-info .nickName {
+  font-size: 14px;
+  color: #363636;
+}
+
+
+.discription {
+  color: #666666;
+  background: #ffffff;
+  padding: 15px 15px 10px 15px;
+  font-size: 15px;
+}
