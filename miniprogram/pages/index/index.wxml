@@ -1,1 +1,3 @@
 <image style="display:none" wx:for="images" wx:key="{{item.url}}" src="{{item.images[0]}}"></image>
+
+<image src=": cloud://test-f726fb.7465-test-f726fb/dress/60heye/IMG_3381.jpg"></image>

@@ -1,6 +1,6 @@
 <image src="{{backgroundUrl}}" style="display:none" bindload="imageLoad"></image>
 <view class='container'>
   <image src="{{backgroundUrl}}" class='bg' style='width:{{imageWith}}px'></image>
-  <button class='button' size="mini" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button wx:if="{{showbtn}}" class='button' size="mini" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 <van-dialog id="van-dialog" />

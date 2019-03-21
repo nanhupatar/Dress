@@ -1,4 +1,4 @@
-var config = require("../../config/config.js");
+// var config = require("../../config/config.js");
 import Dialog from 'vant-weapp/dialog/dialog';
 Page({
 
@@ -10,7 +10,8 @@ Page({
     imageWith: 0,
     vw: 0,
     vh: 0,
-    images:[]
+    images:[],
+    showbtn:false
   },
 
   onLoad: function() {
@@ -50,6 +51,9 @@ Page({
           },
           fail:()=>{
             wx.hideLoading();
+            that.setData({
+              showbtn:true
+            })
           }
         })
       })
