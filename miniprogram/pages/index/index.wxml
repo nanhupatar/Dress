@@ -16,19 +16,18 @@
       </view>
     </view>
     <view class="col">
-      <block wx:for="{{items}}">
-        
-      </block>
-      <view wx:for="{{col2}}" wx:key="_id" class='img-item'>
-        <image src="{{item.images[0]}}" style="width:100%;height:{{item.height}}px" data-item='{{item}}' bindtap='goDetail'></image>
-        <view class='dress-info'>
-          <view class='overflow_2 description'>{{item.description||''}}</view>
-          <view class='flex flex_align_center flex_justify_start user-info'>
-            <image class='avatar' src='{{item.userInfo.avatarUrl||avatarUrl}}'></image>
-            <view class='nickName overflow_1 flex_1'>{{item.userInfo.nickName}}</view>
+      <block wx:for="{{col2}}" wx:key="_id">
+        <view class='img-item'>
+          <image src="{{item.images[0]}}" style="width:100%;height:{{item.height}}px" data-item='{{item}}' bindtap='goDetail'></image>
+          <view class='dress-info'>
+            <view class='overflow_2 description'>{{item.description||''}}</view>
+            <view class='flex flex_align_center flex_justify_start user-info'>
+              <image class='avatar' src='{{item.userInfo.avatarUrl||avatarUrl}}'></image>
+              <view class='nickName overflow_1 flex_1'>{{item.userInfo.nickName}}</view>
+            </view>
           </view>
         </view>
-      </view>
+      </block>
     </view>
   </view>
 </scroll-view>

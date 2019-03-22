@@ -34,6 +34,10 @@
   vertical-align: top;
 }
 
+.img-item {
+  border-radius: 6px;
+  overflow: hidden;
+}
 .col .img-item image{
   width: 100%;
 }
