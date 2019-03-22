@@ -37,7 +37,25 @@
 .img-item {
   border-radius: 6px;
   overflow: hidden;
+  margin-bottom: 10px;
+  font-size: 0;
 }
 .col .img-item image{
   width: 100%;
+}
+
+.img-operate {
+  font-size: 14px;
+  color: #363636;
+  padding: 5px;
+  background: #ffffff;
+}
+
+.img-operate .operate-item {
+  margin-right: 20px;
+}
+
+.operate-item button {
+  border: none;
+  
 }

@@ -66,7 +66,23 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (e) {
+    console.log("分享图片")
+    let item = e.target.dataset.item;
+    let id = e.target.id;
+    let shareText = "好嗨哟，感觉女装已经到达了巅峰";
+    if(this.data.info.userInfo.nickName){
+      shareText = this.data.info.userInfo.nickName + "：女装大佬的日常"; 
+    }
+
+    return {
+      title:shareText,
+      path:"/pages/detail/index?id="+id+"&imageUrl="+item.tempFileURL,
+      imageUrl:item.tempFileURL,
+      success:(res)=>{
+        console.log(res)
+      }
+    }
 
   },
 
@@ -100,10 +116,16 @@ Page({
   },
 
   previewImage: function (e) {
-    console.log(e);
+    let currentImage = e.currentTarget.dataset.item.tempFileURL;
     let imagesUrlList = [];
+    console.log(this.data.info)
     this.data.info.images.forEach(element => {
-      // imagesUrlList.push(element.)
+      imagesUrlList.push(element.tempFileURL)
     });
+
+    wx.previewImage({
+      urls:imagesUrlList,
+      current:currentImage
+    })
   }
 })

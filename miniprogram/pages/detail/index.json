@@ -1,5 +1,7 @@
 {
   "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-icon": "vant-weapp/icon/index"
+  }
 }
