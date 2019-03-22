@@ -21,15 +21,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.loadDetail(options.id)
-
+  
     wx.getSystemInfo({
       success: (res) => {
         this.setData({
           windowWidth: res.windowWidth
         });
 
-        this.loadDetail("5c9328db5707d2cc4b9cc61c");
+        // this.loadDetail("5c9328db5707d2cc4b9cc61c");
+        this.loadDetail(options.id)
       }
     })
   },

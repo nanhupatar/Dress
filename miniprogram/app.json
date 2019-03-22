@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/detail/index",
+    "pages/login/index",
     "pages/index/index",
-    "pages/login/index"
+    "pages/detail/index" 
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
