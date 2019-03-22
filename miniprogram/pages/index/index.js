@@ -13,7 +13,7 @@ Page({
     pageNum:1,
     pageSize:12,
     totalPage:2,
-    avatarUrl:"./avatar.png"
+    avatarUrl:"/images/avatar.png"
   },
 
   onLoad: function () {

@@ -1,4 +1,7 @@
 // pages/detail/index.js
+let col1H = 0;
+let col2H = 0;
+
 Page({
 
   /**
@@ -7,9 +10,11 @@ Page({
   data: {
     info: '',
     images: [],
-    imgWidth: 0,
-    ww:0,
-    done:false
+    windowWidth:0,
+    done:false,
+    avatarUrl:"/images/avatar.png",
+    col1:[],
+    col2:[]
   },
 
   /**
@@ -20,13 +25,8 @@ Page({
 
     wx.getSystemInfo({
       success: (res) => {
-        let ww = res.windowWidth;
-        let wh = res.windowHeight;
-        let imgWidth = ww * 0.46;
-
         this.setData({
-          imgWidth: imgWidth,
-          ww:ww
+          windowWidth: res.windowWidth
         });
 
         this.loadDetail("5c9328db5707d2cc4b9cc61c");
@@ -68,13 +68,31 @@ Page({
   },
 
   onImageLoad: function(e) {
-    let images = this.data.images;
+    let {col1,col2} = this.data;
     let item = e.currentTarget.dataset.item;
+
     item.height = e.detail.height;
     item.width = e.detail.width;
-    images.push(item);
+
+    if (col1H <= col2H) {
+      col1H += item.height;
+      col1.push(item);
+    } else {
+      col2H += item.height;
+      col2.push(item);
+    }
+
     this.setData({
-      images: images
+      col1: col1,
+      col2: col2
     })
+  },
+
+  getImageHeight:function(imageInfo,currentWidth){
+    let oImgW = imageInfo.width;         //图片原始宽度
+    let oImgH = imageInfo.height;        //图片原始高度
+
+    console.log(oImgW)
+    return (oImgH / oImgW )*currentWidth;
   }
 })

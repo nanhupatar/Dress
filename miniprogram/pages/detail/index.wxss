@@ -26,3 +26,14 @@
   padding: 15px 15px 10px 15px;
   font-size: 15px;
 }
+
+.col {
+  width: 46%;
+  margin:1% 1.2%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.col .img-item image{
+  width: 100%;
+}
