@@ -19,7 +19,6 @@
   color: #363636;
 }
 
-
 .discription {
   color: #666666;
   background: #ffffff;
@@ -28,8 +27,8 @@
 }
 
 .col {
-  width: 46%;
-  margin:1% 1.2%;
+  width: 30%;
+  margin: 1% 1.2%;
   display: inline-block;
   vertical-align: top;
 }
@@ -40,22 +39,28 @@
   margin-bottom: 10px;
   font-size: 0;
 }
-.col .img-item image{
+.col .img-item image {
   width: 100%;
 }
 
 .img-operate {
   font-size: 14px;
   color: #363636;
-  padding: 5px;
+  padding: 0px;
   background: #ffffff;
 }
 
-.img-operate .operate-item {
-  margin-right: 20px;
+.operate-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .operate-item button {
   border: none;
-  
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width:100%;
 }

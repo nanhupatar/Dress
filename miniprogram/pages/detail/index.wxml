@@ -14,34 +14,45 @@
   <view class='image-list flex flex flex_align_start'>
     <view class='col'>
       <view class="img-item" wx:for="{{col1}}" wx:key="{{item.fileID}}">
-        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
+        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
         <view class="img-operate flex flex_align_center">
-          <view class="flex flex_align_center operate-item">
+          <view class="operate-item">
             <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
-              <van-icon name="share" />
-              分享
+              <van-icon name="share" size='16px' />
             </button>
           </view>
-          <view class="flex flex_align_center operate-item">
-            <van-icon name="photo-o" />
-            下载
+          <view class="operate-item">
+            <van-icon name="photo-o" size='16px' />
           </view>
         </view>
       </view>
     </view>
     <view class='col'>
       <view class="img-item" wx:for="{{col2}}" wx:key="{{item.fileID}}">
-        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
+        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
         <view class="img-operate flex flex_align_center">
           <view class="flex flex_align_center operate-item">
             <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
-              <van-icon name="share" />
-              分享
+              <van-icon name="share" size='16px' />
             </button>
           </view>
-          <view class="flex flex_align_center operate-item">
-            <van-icon name="photo-o" />
-            下载
+          <view class="operate-item">
+            <van-icon name="photo-o" size='16px' />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='col'>
+      <view class="img-item" wx:for="{{col3}}" wx:key="{{item.fileID}}">
+        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
+        <view class="img-operate flex flex_align_center">
+          <view class="operate-item">
+            <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
+              <van-icon name="share" size='16px' />
+            </button>
+          </view>
+          <view class="operate-item">
+            <van-icon name="photo-o" size='16px' />
           </view>
         </view>
       </view>
