@@ -11,6 +11,7 @@
   border-radius: 6px;
   overflow: hidden;
   font-size: 0;
+  border-radius: 6px;
 }
 
 image {

@@ -16,6 +16,9 @@
       </view>
     </view>
     <view class="col">
+      <block wx:for="{{items}}">
+        
+      </block>
       <view wx:for="{{col2}}" wx:key="_id" class='img-item'>
         <image src="{{item.images[0]}}" style="width:100%;height:{{item.height}}px" data-item='{{item}}' bindtap='goDetail'></image>
         <view class='dress-info'>

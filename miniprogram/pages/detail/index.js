@@ -10,17 +10,17 @@ Page({
   data: {
     info: '',
     images: [],
-    windowWidth:0,
-    done:false,
-    avatarUrl:"/images/avatar.png",
-    col1:[],
-    col2:[]
+    windowWidth: 0,
+    done: false,
+    avatarUrl: "/images/avatar.png",
+    col1: [],
+    col2: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     // this.loadDetail(options.id)
 
     wx.getSystemInfo({
@@ -34,41 +34,44 @@ Page({
     })
   },
 
-  loadDetail: function(id) {
+  loadDetail: function (id) {
     let that = this;
     wx.cloud.callFunction({
       name: "getDressDetail",
       data: {
         id: id
+      },
+      success: (res) => {
+        let info = res.result;
+        wx.cloud.callFunction({
+          name: "getTempFileURL",
+          data: {
+            fileList: info.images
+          },
+          success: (res) => {
+            info.images = res.result;
+            that.setData({
+              info: info,
+              done: true
+            });
+            wx.setNavigationBarTitle({
+              title: info.userInfo.nickName || "女装快乐时光"
+            })
+          }
+        })
       }
-    }).then(res => {
-      let info = res.result;
-      wx.cloud.callFunction({
-        name: "getTempFileURL",
-        data: {
-          fileList: info.images
-        }
-      }).then(res => {
-        info.images = res.result;
-        that.setData({
-          info: info,
-          done:true
-        });
-      })
-    }).catch(err => {
-      console.log(err)
     })
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
 
-  onImageLoad: function(e) {
-    let {col1,col2} = this.data;
+  onImageLoad: function (e) {
+    let { col1, col2 } = this.data;
     let item = e.currentTarget.dataset.item;
 
     item.height = e.detail.height;
@@ -88,11 +91,19 @@ Page({
     })
   },
 
-  getImageHeight:function(imageInfo,currentWidth){
+  getImageHeight: function (imageInfo, currentWidth) {
     let oImgW = imageInfo.width;         //图片原始宽度
     let oImgH = imageInfo.height;        //图片原始高度
 
     console.log(oImgW)
-    return (oImgH / oImgW )*currentWidth;
+    return (oImgH / oImgW) * currentWidth;
+  },
+
+  previewImage: function (e) {
+    console.log(e);
+    let imagesUrlList = [];
+    this.data.info.images.forEach(element => {
+      // imagesUrlList.push(element.)
+    });
   }
 })

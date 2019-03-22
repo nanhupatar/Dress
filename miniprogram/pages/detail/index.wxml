@@ -10,15 +10,15 @@
     <image src='{{col1[0].fileID}}' style='height:{{(col1[0].height/col1[0].width)*windowWidth}}px'></image>
   </view>
   <view class='discription'>{{info.description}}</view>
-  <view class='image-list flex flex_center flex_align_start'>
+  <view class='image-list flex flex_justify_center flex_align_start'>
     <view class='col'>
-      <view class="img-item" wx:for="{{col1}}">
-        <image src="{{item.fileID}}" lazy-load="true" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
+      <view class="img-item" wx:for="{{col1}}" wx:key="{{item.fileID}}">
+        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
       </view>
     </view>
     <view class='col'>
-      <view class="img-item" wx:for="{{col2}}">
-        <image src="{{item.fileID}}" lazy-load="true" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
+      <view class="img-item" wx:for="{{col2}}" wx:key="{{item.fileID}}">
+        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.46*windowWidth}}px"></image>
       </view>
     </view>
   </view>
