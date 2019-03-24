@@ -1,3 +1,7 @@
+page {
+  background: #ffffff;
+}
+
 .cover-img image {
   width: 100%;
 }
@@ -21,46 +25,34 @@
 
 .discription {
   color: #666666;
-  background: #ffffff;
-  padding: 15px 15px 10px 15px;
   font-size: 15px;
-}
-
-.col {
-  width: 30%;
-  margin: 1% 1.2%;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.img-item {
+  margin:5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.04);
   border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  font-size: 0;
 }
-.col .img-item image {
+.from {
+  color: #666666;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+}
+
+swiper {
+  height: 1000rpx;
+}
+
+.slide-image {
+  height: 100%;
   width: 100%;
 }
-
-.img-operate {
-  font-size: 14px;
-  color: #363636;
-  padding: 0px;
+.operate {
   background: #ffffff;
+  padding-top: 5px;
 }
-
-.operate-item {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.operate-item button {
+.operate .operate-item {
   border: none;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width:100%;
+  line-height:inherit;
 }

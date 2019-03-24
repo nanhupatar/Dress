@@ -118,9 +118,10 @@ Page({
   },
 
   goDetail:function(e){
-    const id = e.currentTarget.dataset.item._id;
+    const item = e.currentTarget.dataset.item;
+    const id = item._id;
     console.log("跳转到详情页",id);
-    
+    wx.setStorageSync("dressInfo", item)
     wx.navigateTo({
       url: '../detail/index?id='+id,
     })

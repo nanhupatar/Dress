@@ -1,61 +1,30 @@
-<view style="display:none">
-  <image wx:for="{{info.images}}" data-item='{{item}}' wx:key="{{item.fileID}}" src="{{item.fileID}}" bindload="onImageLoad"></image>
-</view>
 <block wx:if="{{done}}">
   <view class='user-info flex flex_align_center'>
     <image class='avatar' src='{{info.userInfo.avatarUrl}}'></image>
     <view class='nickName'>{{info.userInfo.nickName||''}}</view>
   </view>
-  <view class='cover-img flex flex_center' wx:if="{{col1.length>0}}">
-    <image src='{{col1[0].fileID}}' data-item="{{col1[0]}}" bindtap="previewImage" style='height:{{(col1[0].height/col1[0].width)*windowWidth}}px'></image>
+  <swiper indicator-dots="{{true}}" autoplay="{{false}}">
+    <block wx:for="{{info.images}}" wx:key="{{item}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode='aspectFill' data-src="{{item}}" bindtap='previewImage' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='operate'>
+    <button size='mini' plain='{{true}}' open-type="share" class='operate-item'>
+      <van-icon name="share" size='24px' />
+    </button>
+    <!-- <button size='mini' plain='{{true}}' class='operate-item'>
+      <van-icon name="like-o" size='24px' />
+    </button> -->
   </view>
-  <view class='discription'>{{info.description}}</view>
-  <view class="from" wx:if="{{info.github}}"></view>
-  <view class='image-list flex flex flex_align_start'>
-    <view class='col'>
-      <view class="img-item" wx:for="{{col1}}" wx:key="{{item.fileID}}">
-        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
-        <view class="img-operate flex flex_align_center">
-          <view class="operate-item">
-            <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
-              <van-icon name="share" size='16px' />
-            </button>
-          </view>
-          <view class="operate-item">
-            <van-icon name="photo-o" size='16px' />
-          </view>
-        </view>
-      </view>
+  <van-tag type="success">痕迹</van-tag>
+  <view class='discription'>{{info.description||"这里什么都没有~"}}</view>
+  <block wx:if="{{info.github}}">
+    <van-tag type="success">来源</van-tag>
+    <view class='from' bindtap='setClipboardData'>
+      <text class='iconfont icon-github'></text> Dress
     </view>
-    <view class='col'>
-      <view class="img-item" wx:for="{{col2}}" wx:key="{{item.fileID}}">
-        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
-        <view class="img-operate flex flex_align_center">
-          <view class="flex flex_align_center operate-item">
-            <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
-              <van-icon name="share" size='16px' />
-            </button>
-          </view>
-          <view class="operate-item">
-            <van-icon name="photo-o" size='16px' />
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='col'>
-      <view class="img-item" wx:for="{{col3}}" wx:key="{{item.fileID}}">
-        <image src="{{item.fileID}}" lazy-load="true" data-item="{{item}}" bindtap="previewImage" style="height:{{(item.height/item.width)*0.3*windowWidth}}px"></image>
-        <view class="img-operate flex flex_align_center">
-          <view class="operate-item">
-            <button open-type="share" plain="{{true}}" size="mini" data-item="{{item}}" id="{{info._id}}">
-              <van-icon name="share" size='16px' />
-            </button>
-          </view>
-          <view class="operate-item">
-            <van-icon name="photo-o" size='16px' />
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+  </block>
+  <view style='height:60px'></view>
 </block>

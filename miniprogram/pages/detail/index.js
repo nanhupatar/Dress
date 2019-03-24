@@ -1,7 +1,4 @@
-// pages/detail/index.js
-let col1H = 0;
-let col2H = 0;
-let col3H = 0;
+
 Page({
   /**
    * 页面的初始数据
@@ -12,9 +9,7 @@ Page({
     windowWidth: 0,
     done: false,
     avatarUrl: "/images/avatar.png",
-    col1: [],
-    col2: [],
-    col3: []
+    loading:true
   },
 
   /**
@@ -26,9 +21,21 @@ Page({
         this.setData({
           windowWidth: res.windowWidth
         });
-
-        this.loadDetail("5c9328db5707d2cc4b9cc61c");
-        // this.loadDetail(options.id)
+        const info = wx.getStorageSync("dressInfo");
+        if (info&&info._id === options.id){
+          let navBarText = info.userInfo.nickName + "的女装"
+          wx.setNavigationBarTitle({
+            title: navBarText,
+          })
+          this.setData({
+            done:true,
+            info:info
+          })
+        }else{
+          this.loadDetail(options.id)
+        }
+        // this.loadDetail("5c9328db5707d2cc4b9cc61c");
+       
       }
     });
   },
@@ -42,21 +49,13 @@ Page({
       },
       success: res => {
         let info = res.result;
-        wx.cloud.callFunction({
-          name: "getTempFileURL",
-          data: {
-            fileList: info.images
-          },
-          success: res => {
-            info.images = res.result;
-            that.setData({
-              info: info,
-              done: true
-            });
-            wx.setNavigationBarTitle({
-              title: info.userInfo.nickName || "女装快乐时光"
-            });
-          }
+        let navBarText = info.userInfo.nickName +"的女装"
+        wx.setNavigationBarTitle({
+          title: navBarText,
+        })
+        that.setData({
+          info: info,
+          done: true
         });
       }
     });
@@ -67,61 +66,39 @@ Page({
    */
   onShareAppMessage: function(e) {
     console.log("分享图片");
-    let item = e.target.dataset.item;
-    let id = e.target.id;
-    let shareText = "好嗨哟，感觉女装已经到达了巅峰";
-    if (this.data.info.userInfo.nickName) {
-      shareText = this.data.info.userInfo.nickName + "：女装大佬的日常";
-    }
+    let id = this.data.info._id;
+    let shareText = "好嗨哟，女装大佬也是萌萌哒";
 
     return {
       title: shareText,
-      path: "/pages/detail/index?id=" + id + "&imageUrl=" + item.tempFileURL,
-      imageUrl: item.tempFileURL,
+      path: "/pages/detail/index?id=" + id,
       success: res => {
         console.log(res);
       }
     };
   },
 
-  onImageLoad: function(e) {
-    let { col1, col2, col3 } = this.data;
-    let item = e.currentTarget.dataset.item;
-
-    item.height = e.detail.height;
-    item.width = e.detail.width;
-
-    let minHeight = Math.min(col1H, col1H, col3H);
-
-    if (minHeight === col1H) {
-      col1H += item.height;
-      col1.push(item);
-    } else if (minHeight === col2H) {
-      col2H += item.height;
-      col2.push(item);
-    } else {
-      col3H += item.height;
-      col3.push(item);
-    }
-
-    this.setData({
-      col1: col1,
-      col2: col2,
-      col3: col3
+  previewImage: function(e) {
+    let current = e.currentTarget.dataset.src;
+    wx.previewImage({
+      urls: this.data.info.images,
+      current: current
     });
   },
 
-  previewImage: function(e) {
-    let currentImage = e.currentTarget.dataset.item.tempFileURL;
-    let imagesUrlList = [];
-    console.log("分享");
-    this.data.info.images.forEach(element => {
-      imagesUrlList.push(element.tempFileURL);
-    });
-
-    wx.previewImage({
-      urls: imagesUrlList,
-      current: currentImage
-    });
+  setClipboardData:function(){
+    wx.setClipboardData({
+      data: 'https://github.com/komeiji-satori/Dress',
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            wx.showToast({
+              title: '链接已复制到剪切板',
+              icon:"none"
+            })
+          }
+        })
+      }
+    })
   }
 });
