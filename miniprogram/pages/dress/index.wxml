@@ -1,0 +1,2 @@
+<import src="../../common/imageList/index.wxml" />
+<template is="imageList" data="{{images: images, hasMore: hasMore, showLoading: showLoading}}" />

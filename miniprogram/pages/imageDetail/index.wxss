@@ -1,0 +1,91 @@
+.user-info {
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.user-info .avatar {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+
+.user-info .nickName {
+  flex:1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 35rpx;
+  color: #666;
+}
+
+.container {
+  padding: 10rpx;
+
+}
+
+.cover-img image {
+  width: 100%;
+}
+
+.user-info {
+  padding: 10rpx;
+  background: #fff;
+}
+
+.operations {
+  padding: 10rpx;
+  margin:0 10rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operations button {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 20px;
+  font-size: 0;
+  background: #fff;
+}
+
+button image {
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  margin: 20rpx 10rpx;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.panel .title {
+  margin: 0 10rpx;
+  padding: 10rpx 0;
+  font-size: 15px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.panel .description {
+  padding: 16rpx;
+  font-size: 13px;
+}
+
+.buttons {
+  margin:20rpx 40rpx;
+}
+
+.buttons .button-item {
+  margin-bottom: 20rpx;
+}
+
+.button-item button {
+  color: #fff;
+ background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+}

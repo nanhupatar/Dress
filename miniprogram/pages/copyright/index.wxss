@@ -1,0 +1,9 @@
+.container {
+  color: #aaa;
+  font-size: 14px;
+  padding: 20rpx;
+}
+
+page {
+  background: #fff;
+}

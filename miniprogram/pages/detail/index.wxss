@@ -1,58 +1,65 @@
-page {
-  background: #ffffff;
-}
-
-.cover-img image {
-  width: 100%;
-}
-
 .user-info {
-  padding: 5px;
-  background: #ffffff;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
 }
 
 .user-info .avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 100px;
-  margin-right: 10px;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
 }
 
 .user-info .nickName {
-  font-size: 14px;
+  flex:1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 35rpx;
+  color: #666;
+}
+
+.description {
+  background: #fff;
+  padding: 10rpx 20rpx;
+}
+
+.description .description-item {
+  padding: 5rpx 0;
+  font-size: 15px;
   color: #363636;
 }
 
-.discription {
-  color: #666666;
-  font-size: 15px;
-  margin:5px;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
-}
-.from {
-  color: #666666;
-  font-size: 15px;
-  margin: 5px;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
+.container {
+  width: 750rpx;
+  display: flex;
+  font-size: 0;
 }
 
-swiper {
-  height: 1000rpx;
+.container .column {
+  width: 48%;
+  margin: 1%;
 }
 
-.slide-image {
-  height: 100%;
+.column .column-item {
+  margin-bottom: 10rpx;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.column .img {
   width: 100%;
 }
-.operate {
-  background: #ffffff;
-  padding-top: 5px;
+
+.btn-area {
+  display: flex;
+  justify-content: space-between;
+  margin:0 20rpx;
 }
-.operate .operate-item {
-  border: none;
-  line-height:inherit;
+
+.btn-area button {
+  width: 48%;
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  color: #fff;
 }

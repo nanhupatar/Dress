@@ -1,104 +1,92 @@
-
+let col1H = 0;
+let col2H = 0;
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-    info: "",
-    images: [],
-    windowWidth: 0,
-    done: false,
-    avatarUrl: "/images/avatar.png",
-    loading:true
+    dressInfo: null,
+    col1: [],
+    col2: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          windowWidth: res.windowWidth
-        });
-        const info = wx.getStorageSync("dressInfo");
-        if (info&&info._id === options.id){
-          let navBarText = info.userInfo.nickName + "的女装"
-          wx.setNavigationBarTitle({
-            title: navBarText,
-          })
-          this.setData({
-            done:true,
-            info:info
-          })
-        }else{
-          this.loadDetail(options.id)
-        }
-        // this.loadDetail("5c9328db5707d2cc4b9cc61c");
-       
-      }
-    });
-  },
-
-  loadDetail: function(id) {
+  onLoad: function (options) {
+    col1H = 0;
+    col2H = 0;
     let that = this;
-    wx.cloud.callFunction({
-      name: "getDressDetail",
-      data: {
-        id: id
-      },
-      success: res => {
-        let info = res.result;
-        let navBarText = info.userInfo.nickName +"的女装"
-        wx.setNavigationBarTitle({
-          title: navBarText,
-        })
-        that.setData({
-          info: info,
-          done: true
-        });
-      }
-    });
+    if (options.id) {
+      const id = options.id;
+      wx.showLoading()
+      wx.cloud.callFunction({
+        name:'getDressDetail',
+        data:{
+          id:id
+        },
+        success:(res)=>{
+          console.log(res)
+          that.setData({
+            dressInfo:res.result
+          })
+          wx.hideLoading();
+        },
+        fail:(err)=>{
+          console.log(err);
+          wx.hideLoading();
+          wx.showToast({
+            title: '出了一点小问题，请稍后再试',
+            icon:'none'
+          })
+        }
+      })
+
+    } else {
+      const dressInfo = wx.getStorageSync('dressInfo');
+      that.setData({
+        dressInfo: dressInfo
+      });
+      wx.setNavigationBarTitle({
+        title: dressInfo.userInfo.nickName,
+      })
+    }
   },
+  onShareAppMessage: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function(e) {
-    console.log("分享图片");
-    let id = this.data.info._id;
-    let shareText = "好嗨哟，女装大佬也是萌萌哒";
-
-    return {
-      title: shareText,
-      path: "/pages/detail/index?id=" + id,
-      success: res => {
-        console.log(res);
-      }
+  },
+  onImageLoad: function (e) {
+    let imageH = e.detail.height;
+    let index = e.currentTarget.dataset.index;
+    let {
+      col1,
+      col2,
+      dressInfo
+    } = this.data;
+    let imageInfo = {
+      src: dressInfo.images[index],
+      id: dressInfo._id,
+      userInfo:dressInfo.userInfo
     };
-  },
+    
+    if(col1H<=col2H){
+      col1H+=imageH;
+      col1.push(imageInfo);
+    }else{
+      col2H+=imageH;
+      col2.push(imageInfo);
+    }
 
-  previewImage: function(e) {
-    let current = e.currentTarget.dataset.src;
-    wx.previewImage({
-      urls: this.data.info.images,
-      current: current
-    });
+    this.setData({
+      col1:col1,
+      col2:col2
+    })
   },
-
-  setClipboardData:function(){
-    wx.setClipboardData({
-      data: 'https://github.com/komeiji-satori/Dress',
-      success(res) {
-        wx.getClipboardData({
-          success(res) {
-            wx.showToast({
-              title: '链接已复制到剪切板',
-              icon:"none"
-            })
-          }
-        })
-      }
+  backToDress:function(){
+    wx.redirectTo({
+      url: '../dress/index',
+    })
+  },
+  goImageDetail:function(e){
+    console.log(e)
+    let imageInfo = e.currentTarget.dataset.info;
+    let id = encodeURIComponent(imageInfo.src);
+    wx.setStorageSync("imageInfo", imageInfo)
+    wx.navigateTo({
+      url: '../imageDetail/index'
     })
   }
-});
+})

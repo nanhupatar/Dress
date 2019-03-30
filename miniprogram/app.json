@@ -1,12 +1,19 @@
 {
   "pages": [
+    "pages/imageDetail/index",
+    "pages/detail/index",
+    "pages/dress/index",
     "pages/login/index",
-    "pages/index/index","pages/detail/index"],
+    "pages/index/index",
+    "pages/license/index",
+    "pages/copyright/index"
+    
+  ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFF",
+    "navigationBarTitleText": "好耶是女装",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "black"
   }
 }

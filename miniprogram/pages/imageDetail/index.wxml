@@ -1,0 +1,37 @@
+<block wx:if="{{!onsharing}}">
+  <view class='user-info'>
+    <image src='{{imageInfo.userInfo.avatarUrl}}' class='avatar'></image>
+    <text class='nickName'>{{imageInfo.userInfo.nickName}}</text>
+  </view>
+</block>
+
+<view class='container'>
+  <view class='cover-img'>
+    <image src='{{imageInfo.src}}' mode='widthFix'></image>
+  </view>
+</view>
+
+<view class='operations'>
+  <button open-type='share'><image src='/images/wexin.png'></image></button>
+  <button bindtap='onCreatePoster'><image src='/images/friend.png'></image></button>
+</view>
+
+<view class="buttons">
+  <view class='button-item'><button bindtap='goDetail'>查看作者更多作品</button></view>
+  <view class='button-item'><button bindtap='goDress'>返回主页</button></view>
+</view>
+
+<block wx:for="{{panelList}}" wx:key="{{index}}">
+  <view class='panel'>
+    <view class='title'>{{item.title}}</view>
+    <view class='description'>{{item.description}}</view>
+  </view>
+</block>
+
+<poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button>点击生成海报</button>
+</poster>
+
+
+<!-- 版权 -->
+<footer></footer>

@@ -1,0 +1,13 @@
+.container {
+  padding: 20rpx;
+  color: #666;
+  font-size: 14px;
+}
+
+view {
+  margin: 10rpx 0;
+}
+
+page {
+  background: #fff;
+}

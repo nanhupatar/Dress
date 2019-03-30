@@ -1,0 +1,10 @@
+<view class="container">
+  <view class='text'>前端指南提供技术支持</view>
+  <view class='logo'>
+    <image src='/images/footer_logo.jpg'></image>
+    <text class='text'>前端指南</text>
+  </view>
+  <view class='text'>
+    <text bindtap='goLicense'>使用协议</text> | <text bindtap='goCopyright'>免责声明</text> | <text bindtap='previewImage'>©前端指南</text>
+  </view>
+</view>

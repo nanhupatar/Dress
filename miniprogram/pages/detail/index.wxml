@@ -1,30 +1,40 @@
-<block wx:if="{{done}}">
-  <view class='user-info flex flex_align_center'>
-    <image class='avatar' src='{{info.userInfo.avatarUrl}}'></image>
-    <view class='nickName'>{{info.userInfo.nickName||''}}</view>
+<view style='display:none'>
+  <image wx:for="{{dressInfo.images}}" data-index='{{index}}' src='{{item}}' wx:key="{{item}}" bindload='onImageLoad'></image>
+</view>
+
+<view class='user-info'>
+  <image src='{{dressInfo.userInfo.avatarUrl}}' class='avatar'></image>
+  <text class='nickName'>{{dressInfo.userInfo.nickName}}</text>
+</view>
+
+<block wx:if="{{dressInfo.description&&dressInfo.description.length>0}}">
+  <view class='description'>
+    <view class='description-item' wx:for="{{dressInfo.description}}" wx:key="{{index}}">{{item}}</view>
   </view>
-  <swiper indicator-dots="{{true}}" autoplay="{{false}}">
-    <block wx:for="{{info.images}}" wx:key="{{item}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" mode='aspectFill' data-src="{{item}}" bindtap='previewImage' />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class='operate'>
-    <button size='mini' plain='{{true}}' open-type="share" class='operate-item'>
-      <van-icon name="share" size='24px' />
-    </button>
-    <!-- <button size='mini' plain='{{true}}' class='operate-item'>
-      <van-icon name="like-o" size='24px' />
-    </button> -->
-  </view>
-  <van-tag type="success">痕迹</van-tag>
-  <view class='discription'>{{info.description||"这里什么都没有~"}}</view>
-  <block wx:if="{{info.github}}">
-    <van-tag type="success">来源</van-tag>
-    <view class='from' bindtap='setClipboardData'>
-      <text class='iconfont icon-github'></text> Dress
-    </view>
-  </block>
-  <view style='height:60px'></view>
 </block>
+
+<view class='container'>
+  <view class='column'>
+    <block wx:for="{{col1}}" wx:key="{{item.src}}">
+      <view class='column-item'>
+        <image src='{{item.src}}' mode='widthFix' class='img' data-info='{{item}}' bindtap='goImageDetail'></image>
+      </view>
+    </block>
+  </view>
+  <view class='column'>
+    <block wx:for="{{col2}}" wx:key="{{item.src}}">
+      <view class='column-item'>
+        <image src='{{item.src}}' mode='widthFix' class='img' data-info='{{item}}' bindtap='goImageDetail'></image>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class='btn-area'>
+  <button open-type='share'>分享</button>
+  <button bindtap='backToDress'>查看更多</button>
+</view>
+
+
+<!-- 版权信息 -->
+<footer></footer>

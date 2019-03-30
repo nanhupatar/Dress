@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "footer": "../../common/footer/index",
+    "poster": "wxa-plugin-canvas/poster"
+  },
+  "navigationBarTitleText": "图片详情"
+}
