@@ -1,0 +1,4 @@
+<van-panel title="更新计划" desc="关注前端指南公众号了解更新状态" ></van-panel>
+<van-panel title="下一步做什么" desc="支持用户自定义上传" ></van-panel>
+<van-panel title="是否会开源" desc="有计划" ></van-panel>
+<van-panel title="技术方案" desc="小程序+云开发" ></van-panel>

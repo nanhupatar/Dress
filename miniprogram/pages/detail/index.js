@@ -46,7 +46,19 @@ Page({
     }
   },
   onShareAppMessage: function () {
-
+    let imageInfo = this.data.dressInfo;
+    let id = imageInfo._id;
+    let title = imageInfo.userInfo.nickName+': 穿上女装，感觉自己萌萌哒';
+    return {
+      title: title,
+      path: "pages/detail/index?id="+id,
+      success: (res) => {
+        console.log('转发成功，' + res)
+      },
+      fail: (err) => {
+        console.log('转发失败', err)
+      }
+    }
   },
   onImageLoad: function (e) {
     let imageH = e.detail.height;
@@ -63,11 +75,11 @@ Page({
     };
     
     if(col1H<=col2H){
-      col1H+=imageH;
       col1.push(imageInfo);
+      col1H += imageH;
     }else{
-      col2H+=imageH;
       col2.push(imageInfo);
+      col2H += imageH;
     }
 
     this.setData({
@@ -76,8 +88,8 @@ Page({
     })
   },
   backToDress:function(){
-    wx.redirectTo({
-      url: '../dress/index',
+    wx.switchTab({
+      url: 'pages/dress/index',
     })
   },
   goImageDetail:function(e){

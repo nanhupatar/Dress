@@ -13,7 +13,7 @@
 
 <view class='operations'>
   <button open-type='share'><image src='/images/wexin.png'></image></button>
-  <button bindtap='onCreatePoster'><image src='/images/friend.png'></image></button>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"><image src='/images/friend.png'></image></button>
 </view>
 
 <view class="buttons">
@@ -28,9 +28,7 @@
   </view>
 </block>
 
-<poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
-    <button>点击生成海报</button>
-</poster>
+<poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
 
 
 <!-- 版权 -->

@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/dress/index",
     "pages/imageDetail/index",
     "pages/detail/index",
-    "pages/dress/index",
     "pages/login/index",
     "pages/index/index",
     "pages/license/index",
-    "pages/copyright/index"
-    
+    "pages/copyright/index",
+    "pages/user/index",
+    "pages/camera/index",
+    "pages/plan/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFF",
@@ -15,5 +17,35 @@
     "backgroundColor": "#fff",
     "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#1989fa",
+    "list": [
+      {
+        "pagePath": "pages/dress/index",
+        "text": "女",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_active.png"
+      },
+      {
+        "pagePath": "pages/camera/index",
+        "text": "装",
+        "iconPath": "/images/camera.png",
+        "selectedIconPath": "/images/camera_active.png"
+      },
+      {
+        "pagePath": "pages/plan/index",
+        "text": "大",
+        "iconPath": "/images/plan.png",
+        "selectedIconPath": "/images/plan_active.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "佬",
+        "iconPath": "/images/user.png",
+        "selectedIconPath": "/images/user_active.png"
+      }
+    ]
   }
 }

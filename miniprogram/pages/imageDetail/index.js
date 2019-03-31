@@ -6,6 +6,7 @@ Page({
     onsharing:false,
     imageInfo:null,
     posterConfig:null,
+
     panelList:[
       {
         title:'免责申明',
@@ -66,8 +67,8 @@ Page({
     }
   },
   goDress:function(){
-    wx.navigateTo({
-      url: '/pages/dress/index',
+    wx.switchTab({
+      url: 'pages/dress/index',
     })
   },
   goDetail:function(){
@@ -85,10 +86,18 @@ Page({
   onPosterFail:function(e){
     console.log(e)
   },
-  onCreatePoster:function() {
-    console.log(postConfig)
+  onCreatePoster:function(userInfo) {
+    console.log(userInfo)
+    postConfig.texts[0].text=userInfo.nickName;
+    postConfig.images[0].url = userInfo.avatarUrl;
+    postConfig.images[1].url = this.data.imageInfo.src;
     this.setData({ posterConfig: postConfig }, () => {
       Poster.create();
     });
+  },
+  bindGetUserInfo:function(e){
+    if(e.detail.userInfo){
+      this.onCreatePoster(e.detail.userInfo)
+    }
   }
 })
