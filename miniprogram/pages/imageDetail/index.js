@@ -21,9 +21,10 @@ Page({
   onLoad: function (options) {
     let that = this;
     let imageInfo =wx.getStorageSync("imageInfo");
+    let id = options.id;
     wx.showLoading();
-    if(!imageInfo){
-      imageInfo.id = options.id;
+    if(id){
+      imageInfo.id = id;
       imageInfo.src = decodeURIComponent(options.fileId);
       this.setData({
         onsharing:true

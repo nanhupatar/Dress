@@ -1,5 +1,5 @@
 
 <view class='container'>
-  <button class='button' size="mini" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 <van-dialog id="van-dialog" />

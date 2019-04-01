@@ -12,10 +12,10 @@
     "pages/plan/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FFFFF",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "好耶是女装",
     "backgroundColor": "#fff",
-    "backgroundTextStyle": "dark",
+    "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

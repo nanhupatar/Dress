@@ -3,6 +3,9 @@
   height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bg {
@@ -12,11 +15,4 @@
   display: block;
   border-radius: 6px;
   min-width: 100vw;
-}
-
-.button {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
 }

@@ -1,4 +1,5 @@
 // pages/dress/index.js
+let app = getApp();
 Page({
   data: {
     images: [],
@@ -8,7 +9,14 @@ Page({
     totalPage:2
   },
   onLoad: function (options) {
-    this.loadImage();
+    if(app.globalData.userInfo){
+      this.loadImage();
+    } else {
+      // wx.redirectTo({
+      //   url: '/pages/login/index'
+      // });
+    }
+    
   },
 
   onPullDownRefresh: function () {

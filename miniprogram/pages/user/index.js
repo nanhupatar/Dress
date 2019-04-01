@@ -13,20 +13,20 @@ Page({
   },
   onLoad: function (cb) {
     var that = this
-    console.log(app.globalData.userInfo)
     // 检测是否存在用户信息
     if (app.globalData.userInfo != null) {
       that.setData({
         userInfo: app.globalData.userInfo
       })
     } else {
-      app.getUserInfo((res)=>{
-        that.setData({
-          userInfo:res
-        })
-      })
+      app.getUserInfo(this.setUserInfo(userInfo))
     }
     
+  },
+  setUserInfo:function(userInfo){
+    that.setData({
+      userInfo: userInfo
+    })
   },
   onShow: function () {
     var that = this

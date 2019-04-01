@@ -1,5 +1,6 @@
 // var config = require("../../config/config.js");
 import Dialog from 'vant-weapp/dialog/dialog';
+let app = getApp();
 Page({
 
   /**
@@ -26,8 +27,9 @@ Page({
           },
         }).then(res => {
           console.log('登录', res)
+          app.getUserInfo();
           wx.switchTab({
-            url: '../index/index',
+            url: '../dress/index',
           })
         }).catch(err => {
           console.log('登录失败', err)
@@ -36,7 +38,7 @@ Page({
       fail: () => {
         Dialog.alert({
           title: '温馨提示',
-          message: '本小程序需要授权之后才能使用完整功能'
+          message: '臣妾做不到啊'
         })
       }
     })

@@ -11,8 +11,7 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+    this.getUserInfo();
   },
   getUserInfo: function (cb) {
     console.log(cb)
@@ -20,7 +19,6 @@ App({
     wx.getUserInfo({
       success: function (res) {
         that.globalData.userInfo = res.userInfo
-        cb(that.globalData.userInfo)
       }
     })
   },
