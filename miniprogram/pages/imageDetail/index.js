@@ -6,7 +6,6 @@ Page({
     onsharing:false,
     imageInfo:null,
     posterConfig:null,
-
     panelList:[
       {
         title:'免责申明',
@@ -20,7 +19,7 @@ Page({
   },
   onLoad: function (options) {
     let that = this;
-    let imageInfo =wx.getStorageSync("imageInfo");
+    let imageInfo =wx.getStorageSync("imageInfo")||{};
     let id = options.id;
     wx.showLoading();
     if(id){

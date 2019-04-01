@@ -5,35 +5,43 @@ Page({
     images: [],
     hasMore: true,
     showLoading: false,
-    pageNum:1,
-    totalPage:2
+    pageNum: 1,
+    totalPage: 2
   },
-  onLoad: function (options) {
-    if(app.globalData.userInfo){
-      this.loadImage();
-    } else {
-      // wx.redirectTo({
-      //   url: '/pages/login/index'
-      // });
-    }
-    
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-  onReachBottom: function () {
+  onLoad: function(options) {
+    console.log(233)
+    let that = this;
+    wx.getUserInfo({
+      success: (res) => {
+        that.loadImage();
+      },
+      fail: (err) => {
+        wx.redirectTo({
+          url: '/pages/login/index'
+        });
+      }
+    })
 
   },
-  onShareAppMessage: function () {
+
+  onPullDownRefresh: function() {
+
+  },
+  onReachBottom: function() {
+
+  },
+  onShareAppMessage: function() {
 
   },
   //获取图片
-  loadImage:function () {
+  loadImage: function() {
     let that = this;
-    let {pageNum,totalPage}=this.data;
+    let {
+      pageNum,
+      totalPage
+    } = this.data;
 
-    if(pageNum<=totalPage){
+    if (pageNum <= totalPage) {
       wx.cloud.callFunction({
         name: "getDress",
         data: {
@@ -45,22 +53,22 @@ Page({
           images = images.concat(res.result.images);
           that.setData({
             images: images,
-            totalPage:res.result.totalPage,
-            pageNum:res.result.pageNum+1
+            totalPage: res.result.totalPage,
+            pageNum: res.result.pageNum + 1
           })
         }
       })
-    }else {
+    } else {
       that.setData({
-        hasMore:false
+        hasMore: false
       })
     }
   },
-  onReachBottom:function(e){
+  onReachBottom: function(e) {
     console.log("报告老板，已到达底部");
     this.loadImage();
   },
-  goDetail:function(e){
+  goDetail: function(e) {
     let dressInfo = e.currentTarget.dataset.item;
     wx.setStorageSync("dressInfo", dressInfo);
     wx.navigateTo({

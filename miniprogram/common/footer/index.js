@@ -23,9 +23,9 @@ Component({
         url: '/pages/license/index',
       })
     },
-    goCopyright(){
+    goCopyright:function(){
       wx.navigateTo({
-        url: '/pages/copyright/index',
+        url: '/pages/copyright/index'
       })
     },
     previewImage:function(){

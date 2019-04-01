@@ -12,7 +12,9 @@ Page({
     let that = this;
     if (options.id) {
       const id = options.id;
-      wx.showLoading()
+      wx.showLoading({
+        title:''
+      })
       wx.cloud.callFunction({
         name:'getDressDetail',
         data:{
@@ -51,7 +53,7 @@ Page({
     let title = imageInfo.userInfo.nickName+': 穿上女装，感觉自己萌萌哒';
     return {
       title: title,
-      path: "pages/detail/index?id="+id,
+      path: "/pages/detail/index?id="+id,
       success: (res) => {
         console.log('转发成功，' + res)
       },
@@ -89,7 +91,7 @@ Page({
   },
   backToDress:function(){
     wx.switchTab({
-      url: 'pages/dress/index',
+      url: '/pages/dress/index',
     })
   },
   goImageDetail:function(e){
@@ -98,7 +100,7 @@ Page({
     let id = encodeURIComponent(imageInfo.src);
     wx.setStorageSync("imageInfo", imageInfo)
     wx.navigateTo({
-      url: '../imageDetail/index'
+      url: '/pages/imageDetail/index'
     })
   }
 })
