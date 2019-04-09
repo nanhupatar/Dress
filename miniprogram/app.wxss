@@ -2,7 +2,7 @@
 @import "./style/common.wxss";
 @import "./style/weui.wxss";
 page {
-  background: rgb(72, 68, 66);
+  background: #F6F6F6;
 }
 
 @font-face {font-family: "iconfont";

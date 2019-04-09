@@ -1,14 +1,8 @@
-let col1H = 0;
-let col2H = 0;
 Page({
   data: {
     dressInfo: null,
-    col1: [],
-    col2: []
   },
   onLoad: function (options) {
-    col1H = 0;
-    col2H = 0;
     let that = this;
     if (options.id) {
       const id = options.id;
@@ -62,33 +56,6 @@ Page({
       }
     }
   },
-  onImageLoad: function (e) {
-    let imageH = e.detail.height;
-    let index = e.currentTarget.dataset.index;
-    let {
-      col1,
-      col2,
-      dressInfo
-    } = this.data;
-    let imageInfo = {
-      src: dressInfo.images[index],
-      id: dressInfo._id,
-      userInfo:dressInfo.userInfo
-    };
-    
-    if(col1H<=col2H){
-      col1.push(imageInfo);
-      col1H += imageH;
-    }else{
-      col2.push(imageInfo);
-      col2H += imageH;
-    }
-
-    this.setData({
-      col1:col1,
-      col2:col2
-    })
-  },
   backToDress:function(){
     wx.switchTab({
       url: '/pages/dress/index',
@@ -96,8 +63,10 @@ Page({
   },
   goImageDetail:function(e){
     console.log(e)
-    let imageInfo = e.currentTarget.dataset.info;
-    let id = encodeURIComponent(imageInfo.src);
+    let imageInfo = {};
+    let src = e.currentTarget.dataset.src;
+    imageInfo.src = src;
+    imageInfo.id = this.data.dressInfo._id;
     wx.setStorageSync("imageInfo", imageInfo)
     wx.navigateTo({
       url: '/pages/imageDetail/index'

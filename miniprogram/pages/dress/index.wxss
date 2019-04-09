@@ -1,1 +1,4 @@
 @import "../../common/imageList/index.wxss";
+page {
+  background: rgb(72, 68, 66);
+}

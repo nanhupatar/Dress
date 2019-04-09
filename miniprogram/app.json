@@ -19,8 +19,9 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "backgroundColor":"#484442",
     "color": "#2c2c2c",
-    "selectedColor": "#1989fa",
+    "selectedColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/dress/index",

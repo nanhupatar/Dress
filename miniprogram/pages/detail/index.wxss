@@ -31,25 +31,34 @@
   color: #363636;
 }
 
-.container {
+.imageList-comtainer {
+  box-sizing: border-box;
   width: 750rpx;
+  padding: 10rpx 15rpx;
   display: flex;
-  font-size: 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.container .column {
-  width: 48%;
-  margin: 1%;
+.imageList-item {
+    width: 350rpx;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    overflow: hidden;
+    animation: fadeIn 1s;
 }
 
-.column .column-item {
-  margin-bottom: 10rpx;
-  border-radius: 6px;
+.imageList-item .cover-img-container {
+  position: relative;
   overflow: hidden;
+  background: rgb(72, 68, 66);
 }
 
-.column .img {
-  width: 100%;
+.cover-img-container .cover-img{
+  width: 350rpx;
+  height: 508rpx;
 }
 
 .btn-area {

@@ -68,7 +68,7 @@ Page({
   },
   goDress:function(){
     wx.switchTab({
-      url: 'pages/dress/index',
+      url: '/pages/dress/index',
     })
   },
   goDetail:function(){

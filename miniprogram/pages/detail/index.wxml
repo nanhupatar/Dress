@@ -1,6 +1,6 @@
-<view style='display:none'>
+<!-- <view style='display:none'>
   <image wx:for="{{dressInfo.images}}" data-index='{{index}}' src='{{item}}' wx:key="{{item}}" bindload='onImageLoad'></image>
-</view>
+</view> -->
 
 <view class='user-info'>
   <image src='{{dressInfo.userInfo.avatarUrl}}' class='avatar'></image>
@@ -13,21 +13,16 @@
   </view>
 </block>
 
-<view class='container'>
-  <view class='column'>
-    <block wx:for="{{col1}}" wx:key="{{item.src}}">
-      <view class='column-item'>
-        <image src='{{item.src}}' mode='widthFix' class='img' data-info='{{item}}' bindtap='goImageDetail'></image>
-      </view>
-    </block>
+<view class='imageList-comtainer'>
+  <block wx:for="{{dressInfo.images}}" wx:key="{{item}}">
+  <view class='imageList-item'>
+      <view class='cover-img-container'>
+      <image src='{{item}}' class='cover-img' data-src='{{item}}' bindtap='goImageDetail' mode='aspectFill'></image>
+    </view>
   </view>
-  <view class='column'>
-    <block wx:for="{{col2}}" wx:key="{{item.src}}">
-      <view class='column-item'>
-        <image src='{{item.src}}' mode='widthFix' class='img' data-info='{{item}}' bindtap='goImageDetail'></image>
-      </view>
-    </block>
-  </view>
+
+  </block>
+
 </view>
 
 <view class='btn-area'>
