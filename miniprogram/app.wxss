@@ -1,8 +1,8 @@
 @import "./style/flex.wxss";
 @import "./style/common.wxss";
-
+@import "./style/weui.wxss";
 page {
-  background: #F6F6F6;
+  background: rgb(72, 68, 66);
 }
 
 @font-face {font-family: "iconfont";

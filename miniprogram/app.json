@@ -12,11 +12,11 @@
     "pages/plan/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "好耶是女装",
-    "backgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#484442",
+    "navigationBarTitleText": "知而上",
+    "backgroundColor": "#484442",
     "backgroundTextStyle": "light",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#2c2c2c",
@@ -24,27 +24,15 @@
     "list": [
       {
         "pagePath": "pages/dress/index",
-        "text": "女",
+        "text": "首页",
         "iconPath": "/images/home.png",
         "selectedIconPath": "/images/home_active.png"
       },
       {
         "pagePath": "pages/camera/index",
-        "text": "装",
+        "text": "相机",
         "iconPath": "/images/camera.png",
         "selectedIconPath": "/images/camera_active.png"
-      },
-      {
-        "pagePath": "pages/plan/index",
-        "text": "大",
-        "iconPath": "/images/plan.png",
-        "selectedIconPath": "/images/plan_active.png"
-      },
-      {
-        "pagePath": "pages/user/index",
-        "text": "佬",
-        "iconPath": "/images/user.png",
-        "selectedIconPath": "/images/user_active.png"
       }
     ]
   }

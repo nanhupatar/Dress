@@ -3,25 +3,33 @@
     <view class="loading">玩命加载中…</view>
   </block>
   <block wx:else>
-    <view class="imageList-comtainer">
-      <block wx:for="{{images}}" wx:key="item._id">
-        <view class='imageList-item' data-item="{{item}}" bindtap='goDetail'>
-          <view class='cover-img-container'>
-            <image src='{{item.images[0]}}' lazy-load="{{true}}" mode="aspectFill" class='cover-img'></image>
-            <view class='user-info'>
-              <image src='{{item.userInfo.avatarUrl}}' class='avatar'></image>
-              <text class='nickName'>{{item.userInfo.nickName}}</text>
+    <view>
+      <view class="imageList-comtainer">
+        <block wx:for="{{images}}" wx:key="item._id">
+          <view class='imageList-item' data-item="{{item}}" bindtap='goDetail'>
+            <view class='cover-img-container'>
+              <image src='{{item.images[0]}}' mode="aspectFill" class='cover-img'></image>
+              <view class='user-info'>
+                <image src='{{item.userInfo.avatarUrl}}' class='avatar'></image>
+                <text class='nickName'>{{item.userInfo.nickName}}</text>
+              </view>
             </view>
           </view>
-        </view>
-      </block>
-
-      <block wx:if="{{hasMore}}">
-        <view class="loading-tip">拼命加载中…</view>
-      </block>
-      <block wx:else>
-        <view class="loading-tip">没有更多内容了</view>
-      </block>
+        </block>
+      </view>
+      <view class="page__bd">
+        <block wx:if="{{hasMore}}">
+          <view class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+          </view>
+        </block>
+      </view>
     </view>
   </block>
 </template>
